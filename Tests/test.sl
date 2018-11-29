@@ -5,3 +5,7 @@ var c = "joao"
 print c
 
 var d = var_name + b
+
+function my_function ( n1 , n2 ) {
+    2.0
+}

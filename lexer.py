@@ -3,7 +3,7 @@ import re
 
 TOKENS_FILE = 'Configs/tokens.json'
 number_re = re.compile(r"^\d+\.?\d*$")
-var_name_re = re.compile(r"^[_a-zA-Z]+$")
+var_name_re = re.compile(r"^[_a-zA-Z]+\d*\w*$")
 string_re = re.compile(r'"\w*"')
 
 class Lexer:
@@ -24,18 +24,15 @@ class Lexer:
         def test_re(compiled_re, test_type):
             aux = compiled_re.findall(word)
             return (True, test_type, aux[0]) if len(aux) > 0 else (False, None, None)
-            
-        r, r_type, token = test_re(number_re, 'number')
-        if r:
-            return r_type, token
-
-        r, r_type, token = test_re(string_re, 'string')
-        if r:
-            return r_type, token
-
-        r, r_type, token = test_re(var_name_re, 'var_name')
-        if r:
-            return r_type, token
+        
+        results = [i for i in [
+            test_re(number_re, 'number'),
+            test_re(string_re, 'string'),
+            test_re(var_name_re, 'var_name')
+        ] if i[0]]
+        
+        if len(results) > 0:
+            return results[0][1], results[0][2]
         
         raise Exception(f'Invalid token: {word}')
 

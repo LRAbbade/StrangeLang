@@ -1,6 +1,7 @@
 import argparse
 import os
 from lexer import Lexer
+from pprint import pprint
 
 TEST_PATH = 'Tests/test.sl'
 
@@ -19,8 +20,9 @@ def get_source_text():
         return source_file.read()
 
 program = get_source_text()
-print(program)
+print(f'source program:\n--------------------\n{program}\n--------------------\n')
 
 lexer = Lexer()
 token_list = lexer.tokenize(program)
-print(token_list)
+print('Token list:')
+pprint(token_list)
