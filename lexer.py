@@ -1,13 +1,16 @@
 import json
 import re
 
+TOKENS_FILE = 'Configs/tokens.json'
+
 class Lexer:
 
     def __init__(self):
         self._load_tokens()
 
     def _load_tokens(self):
-        pass
+        with open(TOKENS_FILE, 'r') as tokens:
+            self._tokens = json.load(tokens)
 
-    def tokenize(self, source)
+    def tokenize(self, source):
         pass

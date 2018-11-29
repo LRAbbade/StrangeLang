@@ -2,10 +2,14 @@ import argparse
 import os
 from lexer import Lexer
 
+TEST_PATH = 'Tests/test.sl'
+
 parser = argparse.ArgumentParser(description='Compiler for StrangeLang')
-parser.add_argument('source', metavar='source_path', help='Path to source file')
+parser.add_argument('-f', help='Path to source file')
+parser.add_argument('--test', help='Execute Tests/test.sl file', action="store_true")
 args = parser.parse_args()
-file_path = args.source
+
+file_path = TEST_PATH if args.test else args.f
 
 if not os.path.isfile(file_path):
     raise Exception('File does not exists')
