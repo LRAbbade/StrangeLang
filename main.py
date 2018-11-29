@@ -22,7 +22,11 @@ def get_source_text():
 program = get_source_text()
 print(f'source program:\n--------------------\n{program}\n--------------------\n')
 
+print('Starting Lexical Analysis')
 lexer = Lexer()
 token_list = lexer.tokenize(program)
 print('Token list:')
 pprint(token_list)
+
+print('Starting Syntax Analyzer')
+
