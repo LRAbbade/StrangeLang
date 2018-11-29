@@ -3,7 +3,7 @@ Compiler for a new Programming Language called "StrangeLang"
 
 ## Execution
 
-To run, just run `main.py` with the source file path as an argument and the `-f` flag, eg:
+To execute, just run `main.py` with the source file path as an argument and the `-f` flag, eg:
 
 ```sh
 python main.py -f source_file.sl
