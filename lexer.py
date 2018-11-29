@@ -25,8 +25,8 @@ class Lexer:
         
         results = [i for i in [
             test_tokens('keywords'),
-            test_tokens('operators'),
             test_tokens('separators'),
+            test_tokens('operators'),
             test_re(number_re, 'number'),
             test_re(string_re, 'string'),
             test_re(var_name_re, 'var_name')
