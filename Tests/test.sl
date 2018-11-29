@@ -1,5 +1,7 @@
-hello
+var var_name = 2.0
+var b = 3
+var c = "joao"
 
-yo
+print c
 
-bae
+var d = var_name + b

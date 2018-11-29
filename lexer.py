@@ -2,6 +2,9 @@ import json
 import re
 
 TOKENS_FILE = 'Configs/tokens.json'
+number_re = re.compile(r"^\d+\.?\d*$")
+var_name_re = re.compile(r"^[_a-zA-Z]+$")
+string_re = re.compile(r'"\w*"')
 
 class Lexer:
 
@@ -12,5 +15,30 @@ class Lexer:
         with open(TOKENS_FILE, 'r') as tokens:
             self._tokens = json.load(tokens)
 
+    def _validate_word(self, word):
+        if word in self._tokens['keywords']:
+            return 'keyword', word
+        elif word in self._tokens['operators']:
+            return 'operator', word
+        
+        def test_re(compiled_re, test_type):
+            aux = compiled_re.findall(word)
+            return (True, test_type, aux[0]) if len(aux) > 0 else (False, None, None)
+            
+        r, r_type, token = test_re(number_re, 'number')
+        if r:
+            return r_type, token
+
+        r, r_type, token = test_re(string_re, 'string')
+        if r:
+            return r_type, token
+
+        r, r_type, token = test_re(var_name_re, 'var_name')
+        if r:
+            return r_type, token
+        
+        raise Exception(f'Invalid token: {word}')
+
     def tokenize(self, source):
-        pass
+        words = [word for word in source.split() if len(word) > 0]
+        return [self._validate_word(word) for word in words]

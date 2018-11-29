@@ -19,6 +19,8 @@ def get_source_text():
         return source_file.read()
 
 program = get_source_text()
+print(program)
 
 lexer = Lexer()
 token_list = lexer.tokenize(program)
+print(token_list)
