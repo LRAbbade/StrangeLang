@@ -18,6 +18,7 @@ python main.py -f source_file.sl
 + Numbers are all stored equally (both floating points and integers), they must have at least one digit, can be followed by a dot `.` and any number of digits after. For example, `0.` is a valid number, `.2` is not.
 + Lines must end with a ` ;`, note that there must be a space before the ` ;`.
 + There is no way to make comments as of this version.
++ Everything has to be separated by spaces, if you do something such as `var n1=2`, it will not work.
 
 ## Tokenizing Process
 
@@ -30,7 +31,7 @@ The lexical analyser will separate the whole text by spaces, then attempt to mat
 5. strings
 6. variable names
 
-The complete list of each item can be seen in the `tokens.json` file, inside the [Configs](github.com/LRAbbade/StrangeLang/tree/master/Configs) folder.
+The complete list of each item can be seen in the `tokens.json` file, inside the [Configs](https://www.github.com/LRAbbade/StrangeLang/tree/master/Configs) folder.
 
 ## Testing
 

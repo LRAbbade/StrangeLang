@@ -1,12 +1,13 @@
 var var_name = 2.0 ;
-var b = 3 ;
-var c = "joao" ;
-var e = 0. ;
+var n1 = 3 ;
+var str1 = "joao" ;
+var test_empty_string = "" ;
+var double = 0. ;
 
-print c ;
+print n1 ;
 
-var d = var_name + b ;
+var n2 = var_name + n1 ;
 
-function my_function ( n1 , n2 ) {
-    2.0 ;
+function my_function ( arg1 , arg2 ) {
+    arg1 + arg2 ;
 }
