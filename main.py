@@ -1,6 +1,7 @@
 import argparse
 import os
 from lexer import Lexer
+from syntax import Syntax
 from pprint import pprint
 
 TEST_PATH = 'Tests/test.sl'
@@ -29,4 +30,8 @@ print('Token list:')
 pprint(token_list)
 
 print('Starting Syntax Analyzer')
+syntax = Syntax(token_list)
+result = syntax.run()
 
+if result:
+    print('Syntax analyzer run successfully')

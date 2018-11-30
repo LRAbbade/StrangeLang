@@ -9,5 +9,5 @@ print n1 ;
 var n2 = var_name + n1 ;
 
 function my_function ( arg1 , arg2 ) {
-    arg1 + arg2 ;
+    arg1 + arg2
 }
